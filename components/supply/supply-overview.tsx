@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { ColumnDef } from "@tanstack/react-table";
 import { createColumnHelper } from "@tanstack/react-table";
 import { DataTable } from "@/components/ui/data-table";
 import { GlassCard } from "@/components/ui/glass-card";
@@ -22,7 +21,7 @@ export function SupplyOverview() {
   }, []);
 
   const lowStockCount = data.filter((item) => item.stock <= item.threshold).length;
-  const columns = useMemo<ColumnDef<SupplyItem, any>[]>(
+  const columns = useMemo(
     () => [
       columnHelper.accessor("name", { header: "Bahan" }),
       columnHelper.accessor("stock", { header: "Stok" }),

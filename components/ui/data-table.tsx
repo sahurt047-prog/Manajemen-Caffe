@@ -8,6 +8,9 @@ import {
 } from "@tanstack/react-table";
 
 interface DataTableProps<TData> {
+  // TanStack columns can carry different cell value types in one array.
+  // `any` is kept here intentionally so mixed accessor columns remain assignable.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columns: ColumnDef<TData, any>[];
   data: TData[];
 }

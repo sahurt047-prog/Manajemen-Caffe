@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import type { ColumnDef } from "@tanstack/react-table";
 import { createColumnHelper } from "@tanstack/react-table";
 import { FileUpload } from "@/components/forms/file-upload";
 import { ImageUpload } from "@/components/forms/image-upload";
@@ -20,7 +19,7 @@ const columnHelper = createColumnHelper<MenuItem>();
 
 export default function MenuClientPage() {
   const [open, setOpen] = useState(false);
-  const columns = useMemo<ColumnDef<MenuItem, any>[]>(
+  const columns = useMemo(
     () => [
       columnHelper.accessor("name", {
         header: "Menu",

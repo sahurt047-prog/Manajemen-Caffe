@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { ColumnDef } from "@tanstack/react-table";
 import { createColumnHelper } from "@tanstack/react-table";
 import { DataTable } from "@/components/ui/data-table";
 import { GlassCard } from "@/components/ui/glass-card";
@@ -22,7 +21,7 @@ export function StaffOverview() {
       .finally(() => setLoading(false));
   }, []);
 
-  const columns = useMemo<ColumnDef<StaffMember, any>[]>(
+  const columns = useMemo(
     () => [
       columnHelper.accessor("name", { header: "Nama" }),
       columnHelper.accessor("role", { header: "Posisi" }),
