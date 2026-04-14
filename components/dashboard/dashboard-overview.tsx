@@ -1,6 +1,5 @@
 "use client";
 
-import type { ColumnDef } from "@tanstack/react-table";
 import { createColumnHelper } from "@tanstack/react-table";
 import { ProfitChart } from "@/components/charts/profit-chart";
 import { PdfReportButton } from "@/components/data/pdf-report-button";
@@ -18,7 +17,7 @@ const staffColumn = createColumnHelper<StaffMember>();
 const supplyColumn = createColumnHelper<SupplyItem>();
 const assetColumn = createColumnHelper<AssetItem>();
 
-const orderColumns: ColumnDef<OrderItem, unknown>[] = [
+const orderColumns = [
   orderColumn.accessor("id", { header: "ID Order" }),
   orderColumn.accessor("table", { header: "Meja" }),
   orderColumn.accessor("customer", { header: "Pelanggan" }),
@@ -36,7 +35,7 @@ const orderColumns: ColumnDef<OrderItem, unknown>[] = [
   }),
 ];
 
-const staffColumns: ColumnDef<StaffMember, unknown>[] = [
+const staffColumns = [
   staffColumn.accessor("name", { header: "Nama" }),
   staffColumn.accessor("role", { header: "Posisi" }),
   staffColumn.accessor("attendance", { header: "Absensi" }),
@@ -47,14 +46,14 @@ const staffColumns: ColumnDef<StaffMember, unknown>[] = [
   }),
 ];
 
-const supplyColumns: ColumnDef<SupplyItem, unknown>[] = [
+const supplyColumns = [
   supplyColumn.accessor("name", { header: "Bahan" }),
   supplyColumn.accessor("stock", { header: "Stok" }),
   supplyColumn.accessor("unit", { header: "Unit" }),
   supplyColumn.accessor("threshold", { header: "Minimum" }),
 ];
 
-const assetColumns: ColumnDef<AssetItem, unknown>[] = [
+const assetColumns = [
   assetColumn.accessor("name", { header: "Aset" }),
   assetColumn.accessor("category", { header: "Kategori" }),
   assetColumn.accessor("condition", { header: "Kondisi" }),
